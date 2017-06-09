@@ -17,14 +17,14 @@ Instructions:
 	change point detected and the left and right confidence intervals
 
 Example:	The following runs Gaussian mean change point detection on the file file1 with two processes
-			and a Type-I error of 0.05 and a confidence interval of 0.95
+		and a Type-I error of 0.05 and a confidence interval of 0.95
 
-			Type into command terminal:
-				mpirun -np 2 Parallel-GM 0.05 0.95
+		Type into command terminal:
+		mpirun -np 2 Parallel-GM 0.05 0.95
 
-			Output file would be file1.cp
-			Sample from file1.cp:
-				99 97 104
+		Output file would be file1.cp
+		Sample from file1.cp:	
+		99 97 104
 
-				This indicates that a change point was found at the 99th time step. 
-				Confidence region is from index 97 to 104
+		This indicates that a change point was found at the 99th time step. 
+		Confidence region is from index 97 to 104
