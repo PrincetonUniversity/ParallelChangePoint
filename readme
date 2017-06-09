@@ -1,0 +1,30 @@
+README file for parallelized Gaussian Mean Change Point Detection
+
+Contact (unless otherwise noted): nsong@alumni.princeton.edu
+(C) Nancy Song, Princeton University
+
+Overview: this program executes a parallel version of change point detection
+of changes in the Gaussian mean
+
+Requirements: GNU C Library 2.12.2+, OpenMPI 1.4.2+
+
+Instructions:
+(1)	Build Parallel-GM program using the makefile
+(2)	Run Parallel-GM using the following arguments: filename, alpha, beta
+	(a) alpha is the Type-I error
+	(b) beta is the confidence region. Only accepts values from {0.69, 0.90, 0.95, 0.99}
+(3)	Output is a file with the name of the file appended with .cp that has the time index of the 
+	change point detected and the left and right confidence intervals
+
+Example:	The following runs Gaussian mean change point detection on the file file1 with two processes
+			and a Type-I error of 0.05 and a confidence interval of 0.95
+
+			Type into command terminal:
+				mpirun -np 2 Parallel-GM 0.05 0.95
+
+			Output file would be file1.cp
+			Sample from file1.cp:
+				99 97 104
+
+				This indicates that a change point was found at the 99th time step. 
+				Confidence region is from index 97 to 104
