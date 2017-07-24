@@ -75,8 +75,8 @@ int main(int argc, char *argv[])
 		// No file name entered in the command line
 		printf("\nchangepoint %s%s build %s (GSL version %s)\n",        
 						CHANGEPOINT_VERSION, PLATFORM, COMPILE_DATE, GSL_VERSION);
-		printf("Syntax : changepoint.exe filename delta_t alpha beta\n");
-		printf("Example: changepoint myfile 0.001 0.05 0.95\n");
+		printf("Syntax : changepoint.exe filename alpha beta\n");
+		printf("Example: changepoint myfile 0.05 0.95\n");
 		printf("         produces myfile.cp with type-I error (alpha) of 5%% and \n");
 		printf("         confidence interval of 0.95\n");
 		printf("BUG    : Please send emails to hawyang-at-princeton.edu\n\n");
