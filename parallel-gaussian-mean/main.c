@@ -1,7 +1,7 @@
 /*************************************************************************
 main.c:  Parallelized change point detection
          Originally written using OpenMPI v1.4.2
-         Arguments are filename, timestep, alpha, eta
+         Arguments are filename, alpha, beta
 
 filename:   File with Time Series Data
 alpha:      Type-I error
