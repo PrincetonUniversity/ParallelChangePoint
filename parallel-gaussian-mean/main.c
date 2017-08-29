@@ -32,11 +32,11 @@ int main(int argc, char *argv[])
 	double alpha = 0.075;   // Type-I error, mis-specify transition
 	double beta = 0.075;    // Confidence interval, mis-specify transition
 	double delta_t = 1;     // Time unit between measurements
-	size_t L = 0;           // Total number of data points
-	size_t N_ca;            // Total number of ca
-	size_t ui;              // Dummy index
-	size_t cpl;             // Left bound 
-	size_t cpr;             // Right bound
+	int L = 0;              // Total number of data points
+	int N_ca;               // Total number of ca
+	int ui;                 // Dummy index
+	int cpl;                // Left bound 
+	int cpr;                // Right bound
 	int cp1;
 	int Ncp = 0;            // Change points found in each process
 	int Ncpdlt;             // Change points removed in each process
