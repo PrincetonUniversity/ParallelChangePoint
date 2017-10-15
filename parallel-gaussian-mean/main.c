@@ -139,7 +139,7 @@ int main(int argc, char *argv[])
 		}
 		else {
 			// File exists. start reading in data - only one set though
-			traj = (double*) malloc(sizeof(double*));
+			traj = (double*) malloc(sizeof(double));
 			traj[0] = 0.0;
 
 			while (!feof(fpin)) {
@@ -199,13 +199,18 @@ int main(int argc, char *argv[])
 		CheckCP(&cp_root, traj, alpha, beta, &Ncpdlt, trace, ca, AVG_L);
 
 		// Store changepoints as array for each process
-		cpArray = realloc(cpArray, num_procs * sizeof(int*));
-		lbArray = realloc(lbArray, num_procs * sizeof(int*));
-		rbArray = realloc(rbArray, num_procs * sizeof(int*));
+		cpArray = (int **) realloc(cpArray, num_procs * sizeof(int*));
+		lbArray = (int **) realloc(lbArray, num_procs * sizeof(int*));
+		rbArray = (int **) realloc(rbArray, num_procs * sizeof(int*));
 		Ncp = 0;
-
+		
+		// dummy value allocation
+		cpArray[0] = (int *) calloc(1, sizeof(int));
+		lbArray[0] = (int *) calloc(1, sizeof(int));
+		rbArray[0] = (int *) calloc(1, sizeof(int));
+		
 		MakeCPArray(cp_root, &cpArray[0], &lbArray[0], &rbArray[0], &Ncp);
-		sNcp = malloc(num_procs * sizeof(int));
+		sNcp = (int *) malloc(num_procs * sizeof(int));
 		sNcp[0] = Ncp;
 
 		// Receive detected change points from other processes
@@ -421,11 +426,9 @@ int main(int argc, char *argv[])
 		Ncp = 0;
 
 		// dummy value allocation
-		if(Ncp <= 1) {
-			cpArray[0] = malloc(sizeof(int));
-			lbArray[0] = malloc(sizeof(int));
-			rbArray[0] = malloc(sizeof(int));
-		}
+		cpArray[0] = (int *) calloc(1, sizeof(int));
+		lbArray[0] = (int *) calloc(1, sizeof(int));
+		rbArray[0] = (int *) calloc(1, sizeof(int));
 
 		// Add offsets to detected change points
 		MakeCPArray(cp_root, cpArray, lbArray, rbArray, &Ncp);
