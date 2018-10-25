@@ -4,7 +4,8 @@ Contact (unless otherwise noted): nsong@alumni.princeton.edu
 (C) Nancy Song, Princeton University
 
 Overview: this program executes a parallel version of change point detection
-of changes in the Gaussian mean
+of changes in the Gaussian mean. Note that for fluorescence spectroscopy,
+input are the intensities at each time point, not photon counts.
 
 Requirements: GNU C Library 2.12.2+, OpenMPI 1.4.2+
 
